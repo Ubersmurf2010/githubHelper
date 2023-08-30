@@ -1,10 +1,8 @@
-<<<<<<< HEAD
-check
-main updates
 
-bracnh update
-=======
 # Основные команды Git
+
+
+
 
 Команда для настройки строгого соединения между удаленным репозиторием и локальной веткой
 ```
@@ -14,4 +12,10 @@ git push --set-upstream <local repo name> <branch name>
 ```
 git push
 ```
->>>>>>> 22e139a27c6fdb8f700167e27b021993842d64c8
+
+Слияние веток в локальном репозитории.
+```
+git pull
+git checkout <main branch name>
+git merge <second branch name>
+```
