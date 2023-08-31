@@ -49,3 +49,12 @@ git pull
 git checkout <main branch name>
 git merge <second branch name>
 ```
+
+# Git на Raspberry
+При использовании предустановленного git на Pi os32-bit, после клонирования удаленного репозитория и попытки сделать коммит, может возникнуть ошибка Author identity unknown.
+```
+git config --global user.email "your email"
+git config --global user.name "github username"
+```
+
+
