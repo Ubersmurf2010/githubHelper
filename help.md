@@ -57,4 +57,19 @@ git config --global user.email "your email"
 git config --global user.name "github username"
 ```
 
+# Git init
+Создадии новый репозиторий. В папке проекта выполним команды:
+```
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Ubersmurf2010/RPi_cam_streamer.git
+git push -u origin main
+```
+Или же можно привязать уже существующий репозиторий.
+```
+git remote add origin https://github.com/Ubersmurf2010/RPi_cam_streamer.git
+git branch -M main
+```
 
