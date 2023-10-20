@@ -1,7 +1,7 @@
 
 # Основные команды Git
 
-# CLONE
+# git clone
 Клонирование только одной ветки из удаленного репозитория. 
 Рассмотрим два способа. При вызове вы извлекатее все ветви и проверяте одну. Этот способ применяется реже, если есть большие объемы данных в нескольких ветках. 
 
@@ -17,8 +17,7 @@ git clone --single-branch --branch <branch name> url
 git clone --single-branch --branch fifthAxes https://github.com/Ubersmurf2010/RoverM.git
 
 ```
-
-# PUSH
+# git push
 Команда для настройки строгого соединения между удаленным репозиторием и локальной веткой
 ```
 git push --set-upstream <local repo name> <branch name>
@@ -26,38 +25,26 @@ git push --set-upstream <local repo name> <branch name>
 Теперь достаточно запустить, чтобы перенести изменения из заданной выше ветки в удаленный репозиторий
 ```
 git push
-```
-Рассмотрим случай когда репозиторий клонирован (git clone) по https-адресу.
-Если же клонирование локального репозитория произведено с помощью ssh, то предусмотрена перенастройка на https:
-```
-git remote set-url <local repo name, for example origin> https://github.com/Ubersmurf2010/githubHelper.git
-git remote -v
-```
-В этом случае возможно вместо авторизации с помощью логина и пароля, которую удалили в августе 2021-ого года, использовать сгенирированный токен (причем, также, необходимо следить за тем, чтобы срок действия текущего токена не истек), в противном случае при выполнении команды push, git будет требовать пароль.
-Password for 'https://<недействующий токен>':
-Просто сгенируем новый токен и повтором команду ниже. 
-```
-sudo git push https://<token name>@github.com/Ubersmurf2010/RoverM.git <branch name> 
+git push origin <branch name>
 ```
 Если необходим пуш в определнную ветку, то после https-адреса укажем название ветки, куда необходимо сделать пуш.
 
-# MERGE
-
-# Слияние веток в локальном репозитории.
+# git merge
 ```
 git pull
 git checkout <main branch name>
 git merge <second branch name>
 ```
 
-# Git на Raspberry
+# git config (Raspberry)
 При использовании предустановленного git на Pi os32-bit, после клонирования удаленного репозитория и попытки сделать коммит, может возникнуть ошибка Author identity unknown.
 ```
 git config --global user.email "your email"
 git config --global user.name "github username"
+git config -l
 ```
 
-# Git init
+# git init
 Создадии новый репозиторий. В папке проекта выполним команды:
 ```
 git init
@@ -67,9 +54,15 @@ git branch -M main
 git remote add origin https://github.com/Ubersmurf2010/RPi_cam_streamer.git
 git push -u origin main
 ```
-Или же можно привязать уже существующий репозиторий.
+# git remote add & git remote set-url
 ```
-git remote add origin https://github.com/Ubersmurf2010/RPi_cam_streamer.git
-git branch -M main
+git remote add origin https://<username>:<token>@github.com/<username>/<repo name>.git
 ```
+если неободимо поменять 
+```
+git remote set-url origin https://<username>:<token>@github.com/<username>/<repo name>.git
+git remote -v
+```
+
+
 
